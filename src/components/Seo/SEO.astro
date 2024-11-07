@@ -1,0 +1,41 @@
+---
+import { AstroSeo, type OpenGraph } from '@astrolib/seo';
+import type { HeaderTag } from '@src/types/headerTag';
+
+type Props = HeaderTag;
+
+const { title, description, og, noFollow = false, noIndex = false } = Astro.props;
+
+const DEFAULT_TITLE = import.meta.env.PUBLIC_DEFAULT_TITLE as string;
+const DEFAULT_DESCRIPTION = import.meta.env.PUBLIC_DEFAULT_DESCRIPTION as string;
+const BASE_URL = import.meta.env.PUBLIC_CMS_SITE as string;
+
+if (!BASE_URL) {
+    throw new Error('PUBLIC_CMS_SITE environment variable is not defined or invalid.');
+}
+
+// Canonical
+const canonical = new URL(Astro.url.pathname, BASE_URL).href;
+
+// openGraph
+const openGraph: OpenGraph = {
+	type: og?.type ?? 'website',
+	title: og?.title ?? DEFAULT_TITLE,
+	description: og?.description ?? DEFAULT_DESCRIPTION,
+	images: [{ url: og?.image ?? '', alt: og?.alt ?? '' }],
+	url: canonical,
+};
+---
+
+<>
+	<AstroSeo
+		title={title ?? DEFAULT_TITLE}
+		description={description ?? DEFAULT_DESCRIPTION}
+		nofollow={noFollow}
+		noindex={noIndex}
+		openGraph={{
+			...openGraph,
+		}}
+		canonical={canonical}
+	/>
+</>

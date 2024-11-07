@@ -1,0 +1,35 @@
+---
+import type { WithContext, Thing, WebPage, WebSite } from 'schema-dts';
+import type { HeaderTag } from '@src/types/headerTag';
+
+type Props = HeaderTag;
+
+const { title, description, schema } = Astro.props;
+
+const webSite: WithContext<WebSite> = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'patradanai.com',
+	url: Astro.site?.toString(),
+};
+
+const webPage: WithContext<WebPage> = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: title,
+	description: description,
+	url: new URL(Astro.url.pathname, Astro.site) + '/',
+	isPartOf: webSite,
+};
+
+let schemaCreated: Thing = webPage;
+
+if (schema) {
+	schema.isPartOf = webPage;
+	schemaCreated = schema;
+}
+---
+
+<>
+	<script is:inline type='application/ld+json' set:html={JSON.stringify(schemaCreated)} />
+</>

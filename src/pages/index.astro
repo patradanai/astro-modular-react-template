@@ -1,0 +1,41 @@
+---
+import Layout from '@src/layouts/Layout.astro'
+import type { OpenGraph } from '@src/types/headerTag'
+
+// Cache for 60 seconds
+Astro.locals.cache(import.meta.env.PUBLIC_CACHE_SITE)
+
+// OpenGraph
+const openGraph: OpenGraph = {
+    type: 'website',
+    title: 'example.com',
+    description: 'A communtity for developers to keep learning and sharing knowledge.',
+    image: '/logo_full_white.png',
+    alt: 'example.com',
+}
+---
+
+<Layout
+    title='example.com'
+    description='A communtity for developers to keep learning and sharing knowledge.'
+    og={openGraph}
+>
+    <article class='container mx-auto max-w-6xl' transition:animate='slide'>
+        <div class='px-2 py-10 md:py-20'>
+            <h1 class='text-4xl font-bold text-center'>Welcome to example.com</h1>
+            <p class='text-center text-lg mt-4'>A communtity for developers to keep learning and sharing knowledge.</p>
+        </div>
+    </article>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+</style>

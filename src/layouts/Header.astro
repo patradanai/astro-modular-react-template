@@ -1,0 +1,36 @@
+---
+import { Picture } from 'astro:assets';
+---
+
+<nav class='sticky top-0 z-50'>
+	<div class='relative bg-white shadow-md'>
+		<div class='container mx-auto'>
+			<div class='h-[80px] flex justify-between gap-10'>
+				<a href='/' >
+					<Picture
+						class='h-full object-contain'
+						alt='patrandanai'
+						src='/logo_full_black.png'
+						width={250}
+						height={150}
+						formats={['avif', 'webp']}
+					/>
+				</a>
+
+				<div>
+					<ul class='h-full flex items-center gap-5 px-1 py-5'>
+						<li class="grid place-items-center">
+							<a href='/'>Doc</a>
+						</li>
+						<li class="grid place-items-center">
+							<a href='/about'>Blog</a>
+						</li>
+						<li class="grid place-items-center">
+							<a href='/contact'>Changelog</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>

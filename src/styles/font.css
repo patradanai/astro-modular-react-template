@@ -1,0 +1,33 @@
+/* Kanit */
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 300;
+	src: url('/fonts/Kanit/Kanit-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 400;
+	src: url('/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 500;
+	src: url('/fonts/Kanit/Kanit-Medium.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 600;
+	src: url('/fonts/Kanit/Kanit-SemiBold.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Kanit';
+	font-weight: 700;
+	src: url('/fonts/Kanit/Kanit-Bold.ttf') format('truetype');
+	font-display: swap;
+}

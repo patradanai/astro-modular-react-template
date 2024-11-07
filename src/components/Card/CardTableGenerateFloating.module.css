@@ -1,0 +1,32 @@
+.card-list {
+	padding-left: 10px;
+}
+
+.card-list__item {
+    position: relative;
+    padding-left: 20px;
+    font-size: 18px; /* Font size for the list item text */
+    line-height: 1.6; /* Adjust line-height for better vertical alignment */
+}
+
+
+.card-list__item::before {
+    content: "•";
+    display: inline-block;
+    font-size: 30px;
+    color: #000000FF;
+    text-shadow: #000000FF 0 0 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0%;
+}
+
+.card-list__item__active {
+    color: #000000FF;
+    font-weight: 600;
+}
+
+.error {
+    color: red;
+}

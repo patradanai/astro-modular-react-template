@@ -1,0 +1,95 @@
+@layer components {
+	.prose {
+		@apply mx-auto w-full max-w-prose tracking-wide text-gray-200 lg:text-lg;
+		line-height: 1.75em;
+	}
+
+	.prose > p {
+		@apply my-4;
+	}
+
+	.prose > hr {
+		@apply my-8 border-gray-500;
+	}
+
+	.prose > h2 {
+		@apply mb-4 mt-10 text-[32px] font-normal leading-[38px] text-white;
+	}
+
+	.prose > h3 {
+		@apply mb-4 mt-10 text-2xl font-normal leading-tight text-white;
+	}
+
+	.prose > img {
+		@apply my-4;
+	}
+
+	.prose strong {
+		@apply font-medium text-white;
+	}
+
+	.prose ul {
+		@apply my-4 pl-8;
+	}
+
+	/* the ::marker selector doesn't allow customizing the spacing around the marker as easily */
+	.prose ul li::before {
+		content: '';
+		background: url('../icons/star.svg') center no-repeat;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-right: 8px;
+		margin-left: -18px;
+	}
+
+	.prose ol {
+		@apply my-4 list-inside list-decimal pl-4;
+	}
+	.prose ol ::marker {
+		@apply inline-block font-mono font-bold;
+	}
+
+	.prose li {
+		@apply my-0.5;
+	}
+
+	.prose :where(a) {
+		@apply underline underline-offset-2 hover:no-underline;
+	}
+
+	.prose > p code {
+		@apply mx-0.5 inline-block rounded-lg bg-gray-500 px-2 align-baseline text-sm leading-6 text-gray-100;
+	}
+
+	.prose > p a > code {
+		@apply text-inherit;
+		text-decoration: inherit;
+	}
+
+	.prose > .expressive-code pre {
+		@apply my-6 rounded-md border border-gray-400;
+	}
+
+	.prose table {
+		@apply w-full border-spacing-0 overflow-auto text-sm sm:text-base;
+	}
+	.prose tr {
+		@apply w-full;
+	}
+	.prose :is(th, td) {
+		@apply border-b border-gray-500 px-4 py-2 align-baseline;
+	}
+	.prose :is(th, td):first-child {
+		@apply pl-0;
+	}
+	.prose :is(th, td):last-child {
+		@apply pr-0;
+	}
+	.prose th {
+		@apply font-medium text-white;
+	}
+	.prose th:not([align]) {
+		@apply text-start;
+	}
+}

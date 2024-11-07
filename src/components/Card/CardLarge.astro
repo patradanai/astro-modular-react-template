@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import dayjs from 'dayjs';
+
+interface Props {
+	title: string;
+	alt: string;
+	desc: string;
+	datetime: string;
+	href: string;
+	srcImage: string;
+}
+
+const { title, alt, desc, datetime, href, srcImage }: Props = Astro.props;
+---
+
+<div class='mx-auto max-w-6xl'>
+	<div class='grid grid-cols-1 gap-8 md:grid-cols-2'>
+		<a href={href}>
+			<Picture
+				class='rounded-2xl'
+				alt={alt}
+				formats={['avif', 'webp']}
+				src={srcImage}
+				densities={[1.5, 2]}
+				loading='eager'
+				decoding='async'
+				fetchpriority='high'
+				width={900}
+				height={540}
+			/>
+		</a>
+		<div class='flex flex-col justify-center'>
+			<p class='text-base uppercase text-primary md:text-lg'>FEATURE</p>
+			<a href={href}>
+				<h2 class='mb-1 text-xl font-bold md:text-3xl'>
+					{title}
+				</h2>
+			</a>
+			<p class='mb-4 line-clamp-1 text-base opacity-80 md:text-lg'>
+				{desc}
+			</p>
+			<div class='flex justify-between'>
+				<p class='text-base md:text-xl'>{dayjs(datetime).format('MMM DD, YYYY')}</p>
+
+				<a href={href} class='text-base underline md:text-lg'> Read More </a>
+			</div>
+		</div>
+	</div>
+</div>

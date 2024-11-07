@@ -1,0 +1,64 @@
+@import './font.css';
+@import './prose.css';
+@import 'highlight.js/styles/night-owl.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--color-primary: 59, 130, 246;
+	--color-secondary: 234, 178, 113;
+}
+
+html {
+	font-family: 'Kanit', sans-serif;
+	background: #ffffff91;
+	scroll-behavior: smooth;
+}
+
+code {
+	font-family:
+		Kanit,
+		Menlo,
+		Monaco,
+		Lucida Console,
+		Liberation Mono,
+		DejaVu Sans Mono,
+		Bitstream Vera Sans Mono,
+		Courier New,
+		monospace;
+}
+
+@layer components {
+}
+
+@layer typography {
+	.h0 {
+		@apply font-kanit text-3xl font-medium xl:text-5xl;
+	}
+
+	h1,
+	.h1 {
+		@apply font-kanit text-2xl font-medium md:text-4xl;
+	}
+
+	h2,
+	.h2 {
+		@apply font-kanit text-xl font-medium md:text-2xl;
+	}
+
+	h3,
+	.h3 {
+		@apply font-kanit text-base font-medium;
+	}
+
+	h4,
+	.h4 {
+		@apply font-kanit text-base font-medium md:text-lg;
+	}
+	body,
+	.p {
+		@apply font-kanit text-sm md:text-base;
+	}
+}

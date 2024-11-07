@@ -1,0 +1,48 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Picture } from 'astro:assets';
+---
+
+<nav class='bg-black'>
+	<div class='container mx-auto'>
+		<div class='grid min-h-[400px] w-full grid-cols-1'>
+			<div class='flex flex-col items-center justify-center gap-5'>
+				<a href='/' >
+					<Picture
+						class='h-full object-contain'
+						alt='patrandanai'
+						src='/logo_full_white.png'
+						width={300}
+						height={200}
+						formats={['avif', 'webp']}
+					/>
+				</a>
+				<p class=''>
+					<ul class='flex gap-5 text-blueGray-400'>
+						<li>
+							<a href='/'>Doc</a>
+						</li>
+						<li>
+							<a href='/about'>Blog</a>
+						</li>
+						<li>
+							<a href='/contact'>Changelog</a>
+						</li>
+					</ul>
+				</p>
+				<ul class='flex items-center justify-center gap-5'>
+					<li>
+						<a href='/'> <Icon name='mdi:facebook-box' class='h-6 w-6 text-blue-700' /> </a>
+					</li>
+					<li>
+						<a href='/about'> <Icon name='mdi:youtube' class='h-6 w-6 text-red-600' /> </a>
+					</li>
+					<li>
+						<a href='/contact'> <Icon name='mdi:linkedin' class='h-6 w-6 text-blue-300' /> </a>
+					</li>
+				</ul>
+				<p class='text-sm text-gray-500'>© 2024 All rights reserved</p>
+			</div>
+		</div>
+	</div>
+</nav>

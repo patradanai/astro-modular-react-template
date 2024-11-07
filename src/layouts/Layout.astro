@@ -1,0 +1,46 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+
+import '../styles/global.css';
+import SEO from '@src/components/Seo/SEO.astro';
+import Schema from '@src/components/Schema/Schema.astro';
+import type { HeaderTag } from '@src/types/headerTag';
+
+type Props = HeaderTag;
+
+const headerTags = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='description' content='Astro description' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/p.webp' />
+		<link rel='sitemap' href='/sitemap.xml' />
+		<meta name='generator' content={Astro.generator} />
+
+		<Schema {...headerTags} />
+		<SEO {...headerTags} />
+
+		<slot name='head' />
+		<ViewTransitions />
+	</head>
+	<body>
+		<div class='flex flex-col'>
+			<Header />
+			<div class='flex size-full grow flex-row'>
+				<!-- <Sidebar /> -->
+				<div class='relative flex min-h-screen w-full'>
+					<main class='size-full'>
+						<slot />
+					</main>
+				</div>
+			</div>
+			<Footer />
+		</div>
+	</body>
+</html>
